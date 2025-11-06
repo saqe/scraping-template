@@ -4,8 +4,6 @@ from functools import cache
 from constants import REDIS_URI
 from redis import Redis
 
-r = Redis.from_url(REDIS_URI)
-
 
 @cache
 def get_redis_connection():
@@ -20,6 +18,8 @@ def get_redis_connection():
     Returns:
         Redis: A Redis connection object.
     """
+    if REDIS_URI is None:
+        raise NotImplementedError("Value for env: REDIS_URI is not set.")
     return Redis.from_url(REDIS_URI)
 
 
