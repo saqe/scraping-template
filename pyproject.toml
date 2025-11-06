@@ -1,0 +1,14 @@
+[project]
+name = "scraping-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "black>=25.9.0",
+    "httpx>=0.28.1",
+    "pydantic>=2.12.4",
+    "requests>=2.32.5",
+    "undetected-chromedriver>=3.5.5",
+]
