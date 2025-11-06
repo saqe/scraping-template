@@ -1,5 +1,6 @@
 import tenacity
 
+from constants import DEBUG
 from utils.http_requests import RequestAPI
 from utils.log import get_logger
 from utils.exceptions import TooManyRequests
@@ -31,3 +32,10 @@ class SampleScrapingAPI(RequestAPI):
                 "You are sending too many requests to the server, hold on man"
             )
         raise TooManyRequests
+
+    @staticmethod
+    def dangerous_route():
+        if DEBUG:
+            logger.warning("Skipping with DEBUG flag on.")
+        else:
+            logger.info("Executed, DEBUG OFF")
