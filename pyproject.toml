@@ -9,6 +9,7 @@ dependencies = [
     "black>=25.9.0",
     "httpx>=0.28.1",
     "pydantic>=2.12.4",
+    "redis>=7.0.1",
     "requests>=2.32.5",
     "tenacity>=9.1.2",
     "undetected-chromedriver>=3.5.5",
