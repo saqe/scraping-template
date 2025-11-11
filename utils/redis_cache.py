@@ -52,3 +52,16 @@ def key_exists_in_cache(key) -> bool:
 
     """
     return get_redis_connection().exists(key) == 1
+
+
+def test_redis_connection() -> bool:
+    """
+    Test the Redis connection by sending a PING command.
+
+    This function attempts to ping the Redis server to check if the connection
+    is active and responsive.
+
+    Returns:
+        bool: True if the Redis server responds to the PING command, False otherwise.
+    """
+    return get_redis_connection().ping()
