@@ -1,3 +1,4 @@
+from datetime import datetime
 from enum import StrEnum
 from os import getenv
 
@@ -28,3 +29,11 @@ REDIS_URI = getenv("REDIS_URI")
 
 CHROME_BROWSER_PATH = getenv("CHROME_BROWSER_PATH", "/opt/chrome/chrome")
 CHROME_DRIVER_PATH = getenv("CHROME_DRIVER_PATH", "/opt/chromedriver")
+
+
+# Windows doesn't support having : in the file name.
+CSV_FILE_NAME = str(str(datetime.today())[:16]).replace(":", "-") + ".csv"
+
+# NOTE: Make sure header do not repeat.
+CSV_FILE_HEADER = ["id", "name", "2", "3"]
+CSV_FILE_HEADER.append("")

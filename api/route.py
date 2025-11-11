@@ -9,10 +9,10 @@ logger = get_logger(__name__)
 
 
 class SampleScrapingAPI(RequestAPI):
-    MAIL_URL = "https://api.ipify.org"
+    MAIN_URL = "https://api.ipify.org"
 
     def extract_data(self):
-        response = self.session.get(self.MAIL_URL, params={"format": "json"})
+        response = self.session.get(self.MAIN_URL, params={"format": "json"})
 
         response.raise_for_status()
 
@@ -24,7 +24,7 @@ class SampleScrapingAPI(RequestAPI):
         stop=tenacity.stop_after_attempt(3),
     )
     def multiple_hit_until_found(self):
-        response = self.session.get(self.MAIL_URL, params={"format": "json"})
+        response = self.session.get(self.MAIN_URL, params={"format": "json"})
 
         if response.status_code == 429:
             logger.warning("Rate Limiting by API.")
