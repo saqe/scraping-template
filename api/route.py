@@ -31,7 +31,7 @@ class SampleScrapingAPI(RequestAPI):
             raise TooManyRequests(
                 "You are sending too many requests to the server, hold on man"
             )
-        raise TooManyRequests
+        return response
 
     @staticmethod
     def dangerous_route():
