@@ -1,4 +1,5 @@
 import os
+import mimetypes
 
 import boto3
 
@@ -59,7 +60,8 @@ class BlobFileExporter:
                 response = self.s3_client.put_object(
                     Bucket=self.s3_bucket_name,
                     Key=object_name,
-                    Body=f
+                    Body=f,
+                    ContentType=mimetypes.guess_type(file_path, strict=False)[0]
                 )
             logger.info(f"File {file_path} uploaded to {self.s3_bucket_name}/{object_name}")
             return response
