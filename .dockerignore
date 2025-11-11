@@ -16,3 +16,4 @@ TODO.md
 AGENTS.md
 .python-version
 tests/
+/data/*
