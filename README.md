@@ -64,7 +64,13 @@ python main.py
 
 ### 3. Running Tests
 
-**TODO:** No testing framework is currently configured. Add instructions here once a testing framework (e.g., `pytest`) is set up.
+To run the test suite:
+
+```bash
+pytest
+```
+
+The test files are located in the `tests/` directory.
 
 ## Development Conventions
 
