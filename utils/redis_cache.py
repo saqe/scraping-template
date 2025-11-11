@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from functools import cache
+import typing as t
 
 from constants import REDIS_URI
 from redis import Redis
@@ -51,6 +52,8 @@ def key_exists_in_cache(key) -> bool:
         bool: True if the key exists in the Redis cache, False otherwise.
 
     """
+    if key in list_of_all_keys_on_startup():
+        return True
     return get_redis_connection().exists(key) == 1
 
 
@@ -65,3 +68,8 @@ def test_redis_connection() -> bool:
         bool: True if the Redis server responds to the PING command, False otherwise.
     """
     return get_redis_connection().ping()
+
+
+@cache
+def list_of_all_keys_on_startup() -> t.Set[str]:
+    return set(map(lambda x: x.decode('utf-8'), get_redis_connection().scan_iter("*", count=1000)))
