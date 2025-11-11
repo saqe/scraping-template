@@ -96,6 +96,5 @@ docker run --rm scraping-template-test
 *   **Coding Style:** Follow the PEP 8 style guide. The `black` code formatter is included in the dependencies and can be used to format the code automatically.
 *   **Type Hinting:** All new code should include type hints.
 *   **Configuration:** Use the `.env` file for environment-specific configurations. Do not commit the `.env` file to version control.
-*   **Loggi
-* ng:** Use the `get_logger` function from `utils.log` to get a logger instance for any new module.
+*   **Logging:** Use the `get_logger` function from `utils.log` to get a logger instance for any new module.
 *   **Error Handling:** Use the custom exceptions defined in `utils.exceptions` where appropriate.
