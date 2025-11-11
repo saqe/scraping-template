@@ -2,14 +2,7 @@ from csv import DictWriter
 from datetime import datetime
 from os import path
 
-# Windows doesn't support having : in the file name.
-CSV_FILE_NAME = str(str(datetime.today())[:16]).replace(":", "-") + ".csv"
-
-# NOTE: Make sure header do not repeat.
-CSV_FILE_HEADER = ["id", "name", "2", "3"]
-
-#
-CSV_FILE_HEADER.append("datetime")
+from constants import CSV_FILE_HEADER, CSV_FILE_NAME
 
 
 class CSV:
