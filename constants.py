@@ -37,3 +37,6 @@ CSV_FILE_NAME = str(str(datetime.today())[:16]).replace(":", "-") + ".csv"
 # NOTE: Make sure header do not repeat.
 CSV_FILE_HEADER = ["id", "name", "2", "3"]
 CSV_FILE_HEADER.append("datetime")
+
+# AWS S3 Bucket Name
+S3_BUCKET_NAME = getenv('S3_BUCKET_NAME')
