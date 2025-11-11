@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
 
+# Remove selenium and related packages from requirements.txt for Docker build
+RUN sed -i '/selenium/d; /undetected-chromedriver/d; /trio-websocket/d; /websocket-client/d; /websockets/d' requirements.txt
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
