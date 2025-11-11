@@ -98,3 +98,5 @@ docker run --rm scraping-template-test
 *   **Configuration:** Use the `.env` file for environment-specific configurations. Do not commit the `.env` file to version control.
 *   **Logging:** Use the `get_logger` function from `utils.log` to get a logger instance for any new module.
 *   **Error Handling:** Use the custom exceptions defined in `utils.exceptions` where appropriate.
+*   **Dependency Management:** When adding new libraries using `uv add` or `uv install`, ensure you run `make requirements.txt` afterwards to update `requirements.txt`. This file is used for Docker builds and CI/CD pipelines, so keeping it up-to-date is crucial before pushing any changes.
+ 
