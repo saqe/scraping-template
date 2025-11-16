@@ -7,3 +7,5 @@ logger = get_logger(__name__)
 if not DEBUG and REDIS_URI:
     logger.info("Testing redis connection")
     test_redis_connection()
+
+PROJECT_NAME = "project-name-here"
