@@ -294,7 +294,7 @@ typing-inspection==0.4.2
     # via pydantic
 undetected-chromedriver==3.5.5
     # via scraping-template
-urllib3==2.5.0
+urllib3==2.6.0
     # via
     #   botocore
     #   requests
