@@ -1,0 +1,31 @@
+name: mufap-daily
+
+on:
+  schedule:
+    - cron: "30 14 * * 1-5"   # 14:30 UTC = 19:30 PKT, after NAVs settle
+  workflow_dispatch:           # manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install cloudscraper pandas lxml
+
+      - run: python fetch_mufap.py
+
+      - name: Commit
+        run: |
+          git config user.name  "scraping-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data latest.csv latest.html
+          git diff --staged --quiet || git commit -m "data: $(date -u +%F)"
+          git push
